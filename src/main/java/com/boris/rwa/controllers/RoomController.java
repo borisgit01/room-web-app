@@ -1,10 +1,12 @@
 package com.boris.rwa.controllers;
 
 import com.boris.rwa.models.Room;
+import com.boris.rwa.service.RoomService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,16 +14,13 @@ import java.util.List;
 @Controller
 @RequestMapping("/rooms")
 public class RoomController {
-    private static final List<Room> rooms = new ArrayList<>();
-    static {
-        for(int i=0;i<10;i++) {
-            rooms.add(new Room(i, "Room" + i, "R" + i, "Q"));
-        }
-    }
+    private RoomService roomService;
+
+    public RoomController(RoomService roomService) {this.roomService = roomService;}
 
     @GetMapping
     public String getAllRooms(Model model) {
-        model.addAttribute("rooms", rooms);
+        model.addAttribute("rooms", roomService.getAllRoome());
         return "rooms";
     }
 }

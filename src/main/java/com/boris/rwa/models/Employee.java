@@ -1,49 +1,51 @@
 package com.boris.rwa.models;
 
+import java.util.UUID;
+
 public class Employee {
-    private long id;
-    private String number;
-    private String name;
-    private String info;
+    private UUID id;
+    private String firstName;
+    private String lastName;
+    private String position;
 
     public Employee() {}
 
-    public Employee(long id, String number, String name, String info) {
+    public Employee(UUID id, String firstName, String lastName, String position) {
         this.id = id;
-        this.number = number;
-        this.name = name;
-        this.info = info;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.position = position;
     }
 
-    public long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
-    public String getNumber() {
-        return number;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getName() {
-        return name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getInfo() {
-        return info;
+    public String getPosition() {
+        return position;
     }
 
-    public void setInfo(String info) {
-        this.info = info;
+    public void setPosition(String position) {
+        this.position = position;
     }
 }
