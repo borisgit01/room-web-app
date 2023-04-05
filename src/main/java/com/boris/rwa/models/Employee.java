@@ -1,28 +1,39 @@
 package com.boris.rwa.models;
 
+import javax.persistence.*;
 import java.util.UUID;
 
+@Entity
+@Table(name = "EMPLOYEE")
 public class Employee {
-    private UUID id;
+    @Id
+    @Column(name = "EMPLOYEE_ID")
+    private String employeeId;
+    @Column(name = "FIRST_NAME")
     private String firstName;
+    @Column(name = "LAST_NAME")
     private String lastName;
-    private String position;
+    @Column(name = "POSITION")
+    @Enumerated(EnumType.STRING)
+    private Position position;
 
-    public Employee() {}
+    public Employee() {
+        this.employeeId = UUID.randomUUID().toString();
+    }
 
-    public Employee(UUID id, String firstName, String lastName, String position) {
-        this.id = id;
+    public Employee(String employeeId, String firstName, String lastName, Position position) {
+        this.employeeId = employeeId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.position = position;
     }
 
-    public UUID getId() {
-        return id;
+    public String getEmployeeId() {
+        return employeeId;
     }
 
-    public void setId(UUID id) {
-        this.id = id;
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
     }
 
     public String getFirstName() {
@@ -41,11 +52,11 @@ public class Employee {
         this.lastName = lastName;
     }
 
-    public String getPosition() {
+    public Position getPosition() {
         return position;
     }
 
-    public void setPosition(String position) {
+    public void setPosition(Position position) {
         this.position = position;
     }
 }
