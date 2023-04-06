@@ -15,5 +15,9 @@ public class RoomService {
         this.roomRepository = roomRepository;
     }
 
-    public List<Room> getAllRoome() {return roomRepository.findAll();}
+    public List<Room> getAllRooms() {return roomRepository.findAll();}
+
+    public Room getById(long id){
+        return roomRepository.findById(id).get();
+    }
 }
